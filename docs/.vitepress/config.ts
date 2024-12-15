@@ -4,6 +4,7 @@ import antfu from '@antfu/eslint-config'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { bundledThemes } from 'shiki'
 import { createTwoslasher as createTwoslasherESLint } from 'twoslash-eslint'
+import { createTwoslasher as createTwoslasherSvelte } from 'twoslash-svelte'
 import { defineConfig } from 'vitepress'
 import { version } from '../../package.json'
 import vite from './vite.config'
@@ -24,6 +25,7 @@ const REFERENCES: DefaultTheme.NavItemWithLink[] = [
 
 const INTEGRATIONS: DefaultTheme.NavItemWithLink[] = [
   { text: 'Vue Language Support', link: '/packages/vue' },
+  { text: 'Svelte Language Support', link: '/packages/svelte' },
   { text: 'ESLint TwoSlash', link: '/packages/eslint' },
   { text: 'CDN Usage', link: '/packages/cdn' },
 ]
@@ -62,6 +64,10 @@ export default defineConfig({
           ],
         }) as any,
         explicitTrigger: /\beslint-check\b/,
+      }),
+      transformerTwoslash({
+        langs: ['svelte'],
+        twoslasher: createTwoslasherSvelte(),
       }),
       {
         // Render custom themes with codeblocks
