@@ -17,7 +17,7 @@
       "type": "error",
       "id": "no-console",
       "code": 0,
-      "text": "Unexpected console statement. (no-console)",
+      "text": "Unexpected console statement. Only these console methods are allowed: warn, error. (no-console)",
       "start": 3,
       "length": 11,
       "level": "error",
